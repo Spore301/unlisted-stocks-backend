@@ -1,0 +1,11 @@
+# For the API
+fastapi
+uvicorn[standard]
+
+# For the Database (Processing & Storage)
+sqlalchemy
+psycopg2-binary  # The driver for PostgreSQL
+
+# For the Scraper
+requests
+beautifulsoup4
