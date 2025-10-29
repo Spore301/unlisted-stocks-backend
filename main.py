@@ -7,7 +7,7 @@ from datetime import datetime
 import decimal # For handling NUMERIC type
 
 # --- 1. Import from our models.py file ---
-from models import UnlistedStock, SessionLocal, Base, engine
+from models import UnlistedStock, SessionLocal, Base, engine, create_db_and_tables
 
 # --- 2. Create Pydantic Models (API Response Shape) ---
 # This defines what the JSON response will look like.
@@ -55,6 +55,12 @@ app = FastAPI(
     description="API for unlisted stock data scraped from public sources.",
     version="1.0.0"
 )
+
+@app.on_event("startup")
+def on_startup():
+    print("Running startup event: creating database tables...")
+    create_db_and_tables()
+    print("Database tables created.")
 
 # --- 4. Add CORS Middleware ---
 # This is CRITICAL. It allows your React frontend (on a different "origin")
