@@ -6,7 +6,7 @@ from sqlalchemy.sql import func
 from sqlalchemy.orm import sessionmaker
 
 # --- 1. Database Configuration (Phase 1: Simple) ---
-DATABASE_URL = "postgresql://unlisted_stocks_db_user:x54Z0xvo14vtdUMaclGLrj96jObfZWPw@dpg-d40jksvdiees739l1p30-a/unlisted_stocks_db"
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
 # Boilerplate for SQLAlchemy
 Base = declarative_base() # Modern way
