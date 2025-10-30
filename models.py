@@ -1,3 +1,4 @@
+import os
 import hashlib
 import json
 from sqlalchemy import create_engine, Column, Integer, String, Text, Numeric, DateTime, JSON, Index
